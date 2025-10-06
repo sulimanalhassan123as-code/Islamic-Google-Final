@@ -1,15 +1,6 @@
 {
-  "name": "islamic-google-api",
-  "version": "1.0.0",
-  "description": "Backend functions for Islamic Google",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
     "@google/generative-ai": "^0.1.3",
     "node-fetch": "^2.6.7"
-  },
-  "author": "Suleiman Alhassan",
-  "license": "ISC"
+  }
 }
