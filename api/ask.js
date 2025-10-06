@@ -1,3 +1,4 @@
+// This is the correct backend function for Gemini AI on Vercel
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 module.exports = async (request, response) => {
@@ -15,7 +16,8 @@ module.exports = async (request, response) => {
     const geminiResponse = await result.response;
     const text = geminiResponse.text();
     response.status(200).json({ answer: text });
-  } catch (error) {
+  } catch (error)
+  {
     console.error("Error in /api/ask:", error);
     response.status(500).json({ error: "Sorry, I could not process your question at this time." });
   }
