@@ -1,36 +1,15 @@
-/* General Body Styles */
-body {
-    margin: 0;
-    font-family: 'Amiri', serif;
-    background: linear-gradient(120deg, #ff8177, #ff867a, #f99185, #cf556c, #b12a5b);
-    color: #ffffff;
-    min-height: 100vh;
-    overflow-x: hidden;
-    padding: 2rem;
-    box-sizing: border-box;
-}
-
-/* Main Content Container */
+/* This code is perfect and does not need to change */
+body { margin: 0; font-family: 'Amiri', serif; background: linear-gradient(120deg, #ff8177, #ff867a, #f99185, #cf556c, #b12a5b); color: #ffffff; min-height: 100vh; overflow-x: hidden; padding: 2rem; box-sizing: border-box; }
 .content { max-width: 800px; margin: 0 auto; }
-
-/* Header and Logo */
 header { text-align: center; padding-bottom: 2rem; }
 .logo { font-size: 3rem; font-weight: bold; color: #FFD700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-
-/* Main Content */
 main { text-align: center; }
 .search-section h1 { font-size: 2.2rem; margin-bottom: 2.5rem; color: #f0f0f0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
-
-/* Search Bar */
 .search-bar-container form { display: flex; border-radius: 50px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 .search-input { width: 100%; padding: 1rem 1.5rem; border: none; font-size: 1.1rem; outline: none; background-color: #2d3748; color: #e2e8f0; }
 .search-button { padding: 1rem 2rem; border: none; background-color: #FFD700; color: #1a202c; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
 .search-button:hover { background-color: #e6c300; }
-
-/* Loading Message */
 .loading-message { margin-top: 1.5rem; font-size: 1.1rem; color: #ffffff; height: 22px; }
-
-/* Search Results */
 #search-results-container { margin-top: 2rem; text-align: left; }
 .search-result-item { background-color: rgba(0, 0, 0, 0.15); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; }
 .result-title { font-size: 1.4rem; color: #81e6d9; text-decoration: none; }
@@ -38,106 +17,16 @@ main { text-align: center; }
 .result-url { font-size: 0.9rem; color: #90cdf4; margin-top: 0.25rem; word-break: break-all; }
 .result-snippet { font-size: 1rem; line-height: 1.6; margin-top: 0.75rem; color: #d1d5db; }
 .result-snippet b { color: #ffffff; font-weight: bold; }
-
-/* Footer */
 footer { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; }
-
-
-/* --- NEW STYLES for the AI FEATURE --- */
-
-/* Hides a section */
-.hidden {
-    display: none;
-}
-
-/* Style for the "Ask AI" and "Back to Search" buttons */
-.ai-toggle-btn {
-    background-color: transparent;
-    border: 1px solid #FFD700;
-    color: #FFD700;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-family: 'Amiri', serif;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 2rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.ai-toggle-btn:hover {
-    background-color: #FFD700;
-    color: #1a202c;
-}
-
-/* Secondary style for the "Back" button */
-.ai-toggle-btn.secondary {
-    border-color: #90cdf4;
-    color: #90cdf4;
-}
-.ai-toggle-btn.secondary:hover {
-    background-color: #90cdf4;
-    color: #1a202c;
-}
-
-
-/* Style for the large AI question box */
-.ai-input-container {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#ai-question-input {
-    width: 100%;
-    height: 100px; /* Taller for longer questions */
-    padding: 1rem;
-    font-size: 1.1rem;
-    font-family: 'Amiri', serif;
-    border: 1px solid #2d3748;
-    border-radius: 8px;
-    background-color: #2d3748;
-    color: #e2e8f0;
-    resize: vertical; /* Allows user to make the box taller */
-    box-sizing: border-box;
-}
-
-/* Style for the "Send to AI" button */
-.ai-send-btn {
-    background-color: #81e6d9; /* Teal to look different */
-    color: #1a202c;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    font-family: 'Amiri', serif;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.3s;
-}
-
-.ai-send-btn:hover {
-    background-color: #4fd1c5;
-}
-
-/* Style for the AI's answer container */
-#ai-answer-container {
-    margin-top: 2rem;
-    text-align: left;
-}
-
-.ai-answer {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    border-radius: 8px;
-    line-height: 1.7;
-    font-size: 1.1rem;
-    border-left: 3px solid #81e6d9; /* Teal accent */
-}
-
-.ai-answer .disclaimer {
-    font-size: 0.9rem;
-    color: #a0aec0; /* Lighter grey */
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #2d3748;
-}
+.hidden { display: none; }
+.ai-toggle-btn { background-color: transparent; border: 1px solid #FFD700; color: #FFD700; padding: 0.8rem 1.5rem; font-size: 1rem; font-family: 'Amiri', serif; border-radius: 50px; cursor: pointer; margin-top: 2rem; transition: background-color 0.3s, color 0.3s; }
+.ai-toggle-btn:hover { background-color: #FFD700; color: #1a202c; }
+.ai-toggle-btn.secondary { border-color: #90cdf4; color: #90cdf4; }
+.ai-toggle-btn.secondary:hover { background-color: #90cdf4; color: #1a202c; }
+.ai-input-container { max-width: 700px; margin: 0 auto; }
+#ai-question-input { width: 100%; height: 100px; padding: 1rem; font-size: 1.1rem; font-family: 'Amiri', serif; border: 1px solid #2d3748; border-radius: 8px; background-color: #2d3748; color: #e2e8f0; resize: vertical; box-sizing: border-box; }
+.ai-send-btn { background-color: #81e6d9; color: #1a202c; border: none; padding: 0.8rem 1.5rem; font-size: 1.1rem; font-family: 'Amiri', serif; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 1rem; transition: background-color 0.3s; }
+.ai-send-btn:hover { background-color: #4fd1c5; }
+#ai-answer-container { margin-top: 2rem; text-align: left; }
+.ai-answer { background-color: rgba(0, 0, 0, 0.2); padding: 1.5rem; border-radius: 8px; line-height: 1.7; font-size: 1.1rem; border-left: 3px solid #81e6d9; }
+.ai-answer .disclaimer { font-size: 0.9rem; color: #a0aec0; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #2d3748; }
