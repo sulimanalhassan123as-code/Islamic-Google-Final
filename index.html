@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,8 @@
         </header>
 
         <main>
-            <section class="search-section">
+            <!-- SECTION 1: The Google Search Feature -->
+            <section id="google-search-section" class="search-section">
                 <h1>Your Guide to Authentic Islamic Knowledge</h1>
                 
                 <div class="search-bar-container">
@@ -25,17 +26,38 @@
                     </form>
                 </div>
 
-                <p id="loading-message" class="loading-message"></p>
+                <!-- The new "Ask AI" button -->
+                <button id="show-ai-btn" class="ai-toggle-btn">✨ Ask AI</button>
 
+                <p id="loading-message" class="loading-message"></p>
                 <div id="search-results-container"></div>
+            </section>
+
+            <!-- SECTION 2: The new AI Feature (starts hidden) -->
+            <section id="ai-section" class="search-section hidden">
+                <h1>Ask a Question about Islam</h1>
+                
+                <div class="ai-input-container">
+                    <form id="ai-form">
+                        <textarea id="ai-question-input" placeholder="For example: What are the five pillars of Islam?"></textarea>
+                        <button type="submit" class="ai-send-btn">Send to AI</button>
+                    </form>
+                </div>
+
+                 <!-- The new "Back to Search" button -->
+                <button id="show-search-btn" class="ai-toggle-btn secondary">← Back to Search</button>
+                
+                <p id="ai-loading-message" class="loading-message"></p>
+                <div id="ai-answer-container"></div>
             </section>
         </main>
 
         <footer>
-            <p>Developed by: Suleiman Alhassan
+            <p>Developed by: Suleiman Alhassan (Slave Learn and Hustle)</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
 
 </body>
-              </html>
+</html>
