@@ -1,3 +1,6 @@
+// This is the correct backend function for Google Search on Vercel
+const fetch = require('node-fetch');
+
 module.exports = async (request, response) => {
   const query = request.query.q || 'islam';
   const apiKey = process.env.GOOGLE_API_KEY;
