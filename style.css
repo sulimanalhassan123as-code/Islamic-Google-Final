@@ -1,32 +1,93 @@
-/* This code is perfect and does not need to change */
-body { margin: 0; font-family: 'Amiri', serif; background: linear-gradient(120deg, #ff8177, #ff867a, #f99185, #cf556c, #b12a5b); color: #ffffff; min-height: 100vh; overflow-x: hidden; padding: 2rem; box-sizing: border-box; }
+/* THEME VARIABLES: This makes switching themes easy */
+:root {
+    --bg-gradient: linear-gradient(120deg, #ff8177, #ff867a, #f99185, #cf556c, #b12a5b);
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --gold-color: #FFD700;
+    --input-bg: #2d3748;
+    --input-text: #e2e8f0;
+    --card-bg: rgba(0, 0, 0, 0.15);
+    --link-color: #81e6d9;
+    --url-color: #90cdf4;
+    --snippet-color: #d1d5db;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0,0,0,0.2);
+}
+
+body[data-theme="light"] {
+    --bg-gradient: linear-gradient(120deg, #fdfbfb, #ebedee);
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --gold-color: #c79100;
+    --input-bg: #ffffff;
+    --input-text: #212529;
+    --card-bg: #ffffff;
+    --link-color: #007bff;
+    --url-color: #28a745;
+    --snippet-color: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0,0,0,0.1);
+}
+
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Amiri', serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 2rem;
+    box-sizing: border-box;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Main Content Container */
 .content { max-width: 800px; margin: 0 auto; }
-header { text-align: center; padding-bottom: 2rem; }
-.logo { font-size: 3rem; font-weight: bold; color: #FFD700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+
+/* Header, Logo, and Theme Toggle */
+header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem; }
+.logo { font-size: 3rem; font-weight: bold; color: var(--gold-color); text-shadow: 2px 2px 4px var(--shadow-color); }
+
+.theme-toggle {
+    background: none; border: none; cursor: pointer;
+    color: var(--gold-color); padding: 0.5rem;
+}
+.theme-icon { width: 28px; height: 28px; fill: currentColor; }
+body[data-theme="light"] #theme-icon-moon { display: none; }
+body[data-theme="dark"] #theme-icon-sun { display: none; }
+
+
+/* Main Content */
 main { text-align: center; }
-.search-section h1 { font-size: 2.2rem; margin-bottom: 2.5rem; color: #f0f0f0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
-.search-bar-container form { display: flex; border-radius: 50px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.search-input { width: 100%; padding: 1rem 1.5rem; border: none; font-size: 1.1rem; outline: none; background-color: #2d3748; color: #e2e8f0; }
-.search-button { padding: 1rem 2rem; border: none; background-color: #FFD700; color: #1a202c; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
-.search-button:hover { background-color: #e6c300; }
-.loading-message { margin-top: 1.5rem; font-size: 1.1rem; color: #ffffff; height: 22px; }
+.search-section h1 { font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--text-secondary); text-shadow: 1px 1px 3px var(--shadow-color); }
+
+/* Search Bar */
+.search-bar-container form { display: flex; border-radius: 50px; overflow: hidden; box-shadow: 0 5px 15px var(--shadow-color); }
+.search-input { width: 100%; padding: 1rem 1.5rem; border: none; font-size: 1.1rem; outline: none; background-color: var(--input-bg); color: var(--input-text); }
+.search-button { padding: 1rem 2rem; border: none; background-color: var(--gold-color); color: var(--bg-color); font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s, color 0.3s; }
+.search-button:hover { filter: brightness(1.1); }
+
+/* Other styles from before, now using variables */
+.loading-message { margin-top: 1.5rem; font-size: 1.1rem; color: var(--text-primary); height: 22px; }
 #search-results-container { margin-top: 2rem; text-align: left; }
-.search-result-item { background-color: rgba(0, 0, 0, 0.15); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; }
-.result-title { font-size: 1.4rem; color: #81e6d9; text-decoration: none; }
+.search-result-item { background-color: var(--card-bg); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px var(--shadow-color); }
+.result-title { font-size: 1.4rem; color: var(--link-color); text-decoration: none; }
 .result-title:hover { text-decoration: underline; }
-.result-url { font-size: 0.9rem; color: #90cdf4; margin-top: 0.25rem; word-break: break-all; }
-.result-snippet { font-size: 1rem; line-height: 1.6; margin-top: 0.75rem; color: #d1d5db; }
-.result-snippet b { color: #ffffff; font-weight: bold; }
-footer { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; }
+.result-url { font-size: 0.9rem; color: var(--url-color); margin-top: 0.25rem; word-break: break-all; }
+.result-snippet { font-size: 1rem; line-height: 1.6; margin-top: 0.75rem; color: var(--snippet-color); }
+.result-snippet b { color: var(--text-primary); font-weight: bold; }
+footer { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-secondary); }
+
 .hidden { display: none; }
-.ai-toggle-btn { background-color: transparent; border: 1px solid #FFD700; color: #FFD700; padding: 0.8rem 1.5rem; font-size: 1rem; font-family: 'Amiri', serif; border-radius: 50px; cursor: pointer; margin-top: 2rem; transition: background-color 0.3s, color 0.3s; }
-.ai-toggle-btn:hover { background-color: #FFD700; color: #1a202c; }
-.ai-toggle-btn.secondary { border-color: #90cdf4; color: #90cdf4; }
-.ai-toggle-btn.secondary:hover { background-color: #90cdf4; color: #1a202c; }
+.ai-toggle-btn { background-color: transparent; border: 1px solid var(--gold-color); color: var(--gold-color); padding: 0.8rem 1.5rem; font-size: 1rem; font-family: 'Amiri', serif; border-radius: 50px; cursor: pointer; margin-top: 2rem; transition: background-color 0.3s, color 0.3s; }
+.ai-toggle-btn:hover { background-color: var(--gold-color); color: var(--bg-color); }
+.ai-toggle-btn.secondary { border-color: var(--url-color); color: var(--url-color); }
+.ai-toggle-btn.secondary:hover { background-color: var(--url-color); color: var(--bg-color); }
 .ai-input-container { max-width: 700px; margin: 0 auto; }
-#ai-question-input { width: 100%; height: 100px; padding: 1rem; font-size: 1.1rem; font-family: 'Amiri', serif; border: 1px solid #2d3748; border-radius: 8px; background-color: #2d3748; color: #e2e8f0; resize: vertical; box-sizing: border-box; }
-.ai-send-btn { background-color: #81e6d9; color: #1a202c; border: none; padding: 0.8rem 1.5rem; font-size: 1.1rem; font-family: 'Amiri', serif; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 1rem; transition: background-color 0.3s; }
-.ai-send-btn:hover { background-color: #4fd1c5; }
+#ai-question-input { width: 100%; height: 100px; padding: 1rem; font-size: 1.1rem; font-family: 'Amiri', serif; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--input-bg); color: var(--input-text); resize: vertical; box-sizing: border-box; }
+.ai-send-btn { background-color: var(--link-color); color: #1a202c; border: none; padding: 0.8rem 1.5rem; font-size: 1.1rem; font-family: 'Amiri', serif; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 1rem; transition: background-color 0.3s; }
+.ai-send-btn:hover { filter: brightness(1.1); }
 #ai-answer-container { margin-top: 2rem; text-align: left; }
-.ai-answer { background-color: rgba(0, 0, 0, 0.2); padding: 1.5rem; border-radius: 8px; line-height: 1.7; font-size: 1.1rem; border-left: 3px solid #81e6d9; }
-.ai-answer .disclaimer { font-size: 0.9rem; color: #a0aec0; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #2d3748; }
+.ai-answer { background-color: var(--card-bg); padding: 1.5rem; border-radius: 8px; line-height: 1.7; font-size: 1.1rem; border-left: 3px solid var(--link-color); box-shadow: 0 2px 4px var(--shadow-color); }
+.ai-answer .disclaimer { font-size: 0.9rem; color: var(--snippet-color); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
