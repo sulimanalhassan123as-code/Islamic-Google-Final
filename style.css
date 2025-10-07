@@ -89,5 +89,4 @@ footer { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1p
 .ai-send-btn { background-color: var(--link-color); color: #1a202c; border: none; padding: 0.8rem 1.5rem; font-size: 1.1rem; font-family: 'Amiri', serif; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 1rem; transition: background-color 0.3s; }
 .ai-send-btn:hover { filter: brightness(1.1); }
 #ai-answer-container { margin-top: 2rem; text-align: left; }
-.ai-answer { background-color: var(--card-bg); padding: 1.5rem; border-radius: 8px; line-height: 1.7; font-size: 1.1rem; border-left: 3px solid var(--link-color); box-shadow: 0 2px 4px var(--shadow-color); }
-.ai-answer .disclaimer { font-size: 0.9rem; color: var(--snippet-color); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
+.ai-answer { background-color: var(--card-bg); padding: 1.5rem; border-radius: 8px; line-height: 1.7; font-size: 1.1rem; border-left: 3px solid var(--link-color); box-
