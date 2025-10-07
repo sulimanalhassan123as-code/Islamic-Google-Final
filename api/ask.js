@@ -13,8 +13,8 @@ module.exports = async (request, response) => {
     const { question } = request.body;
     const prompt = `As an Islamic knowledge assistant, answer the following question in a respectful and informative way. Question: "${question}"`;
     
-    // THIS IS THE CORRECTED MODEL NAME
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // THIS IS THE FINAL, CORRECTED MODEL NAME
+    const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
     const result = await model.generateContent(prompt);
     const geminiResponse = await result.response;
