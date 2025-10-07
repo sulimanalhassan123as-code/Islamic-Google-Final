@@ -1,3 +1,31 @@
+// --- THEME SWITCHER LOGIC ---
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Function to set the theme
+function setTheme(theme) {
+    body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme); // Save the choice in the browser's memory
+}
+
+// Event listener for the toggle button
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        setTheme('light');
+    } else {
+        setTheme('dark');
+    }
+});
+
+// Check for a saved theme preference when the page loads
+const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark mode
+setTheme(savedTheme);
+
+
+// --- THE REST OF THE CODE IS THE SAME ---
+
+// Section Toggling Logic
 const googleSearchSection = document.getElementById('google-search-section');
 const aiSection = document.getElementById('ai-section');
 const showAiBtn = document.getElementById('show-ai-btn');
@@ -13,6 +41,7 @@ showSearchBtn.addEventListener('click', () => {
     googleSearchSection.classList.remove('hidden');
 });
 
+// Google Search Logic
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('search-results-container');
@@ -27,7 +56,6 @@ searchForm.addEventListener('submit', function (event) {
 async function fetchResults(query) {
   loadingMessage.textContent = 'Searching...';
   resultsContainer.innerHTML = '';
-  // THIS IS THE NEW, CORRECT VERCEL URL
   const apiUrl = `/api/search?q=${encodeURIComponent(query)}`;
   try {
     const response = await fetch(apiUrl);
@@ -58,6 +86,7 @@ function displayResults(data) {
   }
 }
 
+// Gemini AI Logic
 const aiForm = document.getElementById('ai-form');
 const aiQuestionInput = document.getElementById('ai-question-input');
 const aiAnswerContainer = document.getElementById('ai-answer-container');
@@ -67,10 +96,8 @@ aiForm.addEventListener('submit', async function(event) {
     event.preventDefault();
     const question = aiQuestionInput.value;
     if (!question) return;
-
     aiLoadingMessage.textContent = 'AI is thinking...';
     aiAnswerContainer.innerHTML = '';
-    // THIS IS THE NEW, CORRECT VERCEL URL
     const apiUrl = '/api/ask';
     try {
         const response = await fetch(apiUrl, {
