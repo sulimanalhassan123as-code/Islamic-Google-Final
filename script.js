@@ -1,4 +1,4 @@
-// --- THEME SWITCHER LOGIC (This part is already working perfectly!) ---
+// --- THEME SWITCHER LOGIC ---
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -20,7 +20,7 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 setTheme(savedTheme);
 
 
-// --- SECTION TOGGLING LOGIC (This part is also working perfectly!) ---
+// --- SECTION TOGGLING LOGIC ---
 const googleSearchSection = document.getElementById('google-search-section');
 const aiSection = document.getElementById('ai-section');
 const showAiBtn = document.getElementById('show-ai-btn');
@@ -37,7 +37,7 @@ showSearchBtn.addEventListener('click', () => {
 });
 
 
-// --- GOOGLE SEARCH LOGIC (WITH CORRECTED API URL) ---
+// --- GOOGLE SEARCH LOGIC ---
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('search-results-container');
@@ -52,7 +52,6 @@ searchForm.addEventListener('submit', function (event) {
 async function fetchResults(query) {
   loadingMessage.textContent = 'Searching...';
   resultsContainer.innerHTML = '';
-  // THIS IS THE CORRECTED ADDRESS FOR VERCEL
   const apiUrl = `/api/search?q=${encodeURIComponent(query)}`;
   try {
     const response = await fetch(apiUrl);
@@ -65,10 +64,7 @@ async function fetchResults(query) {
   }
 }
 
-function displayResults(data) { /* This function is correct and does not need to change */ }
-
-
-// --- GEMINI AI LOGIC (WITH CORRECTED API URL) ---
+// --- GEMINI AI LOGIC ---
 const aiForm = document.getElementById('ai-form');
 const aiQuestionInput = document.getElementById('ai-question-input');
 const aiAnswerContainer = document.getElementById('ai-answer-container');
@@ -81,7 +77,6 @@ aiForm.addEventListener('submit', async function(event) {
 
     aiLoadingMessage.textContent = 'AI is thinking...';
     aiAnswerContainer.innerHTML = '';
-    // THIS IS THE CORRECTED ADDRESS FOR VERCEL
     const apiUrl = '/api/ask';
 
     try {
@@ -99,9 +94,8 @@ aiForm.addEventListener('submit', async function(event) {
     }
 });
 
-function displayAiAnswer(answer) { /* This function is correct and does not need to change */ }
 
-// --- We need to add the two missing display functions back ---
+// --- DISPLAY FUNCTIONS ---
 function displayResults(data) {
   loadingMessage.textContent = '';
   if (data.items && data.items.length > 0) {
