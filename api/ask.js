@@ -9,9 +9,12 @@ module.exports = async (request, response) => {
 
   try {
     const { question } = request.body;
-    const prompt = `As an Islamic knowledge assistant, answer the following question clearly and respectfully: "${question}"`;
+    const prompt = `As an Islamic knowledge assistant, answer the following question clearly and respectfully:\n\n${question}`;
 
+    // ✅ Use the correct, existing model name
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Or, if you want the more advanced version:
+    // const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
     const result = await model.generateContent(prompt);
     const text = result.response.text();
@@ -21,6 +24,7 @@ module.exports = async (request, response) => {
     console.error("Error in /api/ask:", error);
     response.status(500).json({
       error: "Sorry, I could not process your question at this time.",
+      details: error.message,
     });
   }
 };
