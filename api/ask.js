@@ -8,23 +8,19 @@ module.exports = async (request, response) => {
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
   try {
-    const { question } = request.body;
-    const prompt = `As an Islamic knowledge assistant, answer the following question clearly and respectfully:\n\n${question}`;
+    const { question } = request.body || {};
+    const prompt = `As an Islamic knowledge assistant, answer respectfully and concisely:\n\n${question}`;
 
-    // ✅ Use the correct, existing model name
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    // Or, if you want the more advanced version:
-    // const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+    // model name from env var (set GEMINI_MODEL in Vercel), fallback to a safe default
+    const modelName = process.env.GEMINI_MODEL || "gemini-2.5-pro";
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    const text = result.response?.text?.() || (result.response && result.response[0]) || "";
 
     response.status(200).json({ answer: text });
   } catch (error) {
     console.error("Error in /api/ask:", error);
-    response.status(500).json({
-      error: "Sorry, I could not process your question at this time.",
-      details: error.message,
-    });
+    response.status(500).json({ error: error.message || "Unknown error" });
   }
 };
