@@ -3,8 +3,8 @@ const fetch = require("node-fetch");
 
 module.exports = async (request, response) => {
   const query = request.query.q || "islam";
-  const apiKey = process.env.API_KEY; // ✅ matches Vercel variable
-  const searchEngineId = process.env.CX; // ✅ matches Vercel variable
+  const apiKey = process.env.API_KEY;
+  const searchEngineId = process.env.CX;
 
   if (!apiKey || !searchEngineId) {
     console.error("Missing API key or Search Engine ID environment variables.");
@@ -16,6 +16,12 @@ module.exports = async (request, response) => {
   try {
     const fetchResponse = await fetch(apiUrl);
     const data = await fetchResponse.json();
+
+    if (!data.items) {
+      console.error("No search results:", data);
+      return response.status(404).json({ error: "No results found." });
+    }
+
     response.status(200).json(data);
   } catch (error) {
     console.error("Error in /api/search:", error);
