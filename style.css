@@ -1,51 +1,30 @@
-/* THEME VARIABLES: This makes switching themes easy */
-:root {
-  --bg-gradient: radial-gradient(circle at top left, #0a0f14, #0d1b22, #132832, #1b3b4b);
-  --bg-pattern: url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png'); /* Islamic pattern */
-  --bg-color: #121212;
-  --text-primary: #ffffff;
-  --text-secondary: #f0f0f0;
-  --gold-color: #FFD700;
-  --button-text: #111827;
-  --input-bg: #2d3748;
-  --input-text: #e2e8f0;
-  --card-bg: rgba(0, 0, 0, 0.15);
-  --link-color: #81e6d9;
-  --url-color: #90cdf4;
-  --snippet-color: #d1d5db;
-  --border-color: rgba(255, 255, 255, 0.2);
-  --shadow-color: rgba(0, 0, 0, 0.2);
-}
+/* Improved Islamic Style — clean, elegant, and fully visible */
 
-/* Light theme overrides */
-body[data-theme="light"] {
-  --bg-gradient: linear-gradient(120deg, #fdfbfb, #ebedee);
-  --bg-pattern: none;
-  --bg-color: #ffffff;
-  --text-primary: #212529;
-  --text-secondary: #495057;
-  --gold-color: #c79100;
+:root {
+  --bg-gradient: linear-gradient(135deg, #f9f5e7, #fffdf6, #f4ecd8); /* Light beige & cream */
+  --pattern: url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png');
+  --bg-color: #faf7ef;
+  --text-primary: #1c1c1c;
+  --text-secondary: #3d3d3d;
+  --gold-color: #c49b0b;
   --button-text: #ffffff;
   --input-bg: #ffffff;
-  --input-text: #212529;
-  --card-bg: #ffffff;
-  --link-color: #007bff;
-  --url-color: #28a745;
-  --snippet-color: #6c757d;
-  --border-color: #dee2e6;
-  --shadow-color: rgba(0,0,0,0.08);
+  --input-text: #212121;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --link-color: #00897b;
+  --url-color: #00695c;
+  --snippet-color: #4e342e;
+  --border-color: rgba(0,0,0,0.08);
+  --shadow-color: rgba(0,0,0,0.1);
 }
 
 /* General Body Styles */
-* { box-sizing: border-box; }
-
 body {
   margin: 0;
   font-family: 'Amiri', serif;
-  background: var(--bg-gradient), var(--bg-pattern);
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  background: var(--bg-gradient);
+  background-image: var(--pattern);
+  background-size: 300px;
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -53,18 +32,57 @@ body {
   transition: background 0.5s ease, color 0.5s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-color);
 }
 
-/* Subtle golden glow effect for Islamic elegance */
+/* Soft golden glow for spiritual elegance */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 10%, rgba(255, 215, 0, 0.05), transparent 70%);
+  background: radial-gradient(circle at 50% 10%, rgba(255, 215, 0, 0.08), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Keep the rest of your CSS EXACTLY as you sent it */
+/* Header Logo */
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--gold-color);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+}
+
+/* Search bar fix */
+.search-bar-container form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.search-input {
+  background-color: #fff;
+  color: #111;
+}
+
+.search-button {
+  background-color: var(--gold-color);
+  color: #fff;
+}
+
+.search-button:hover {
+  filter: brightness(1.05);
+}
+
+/* Result Cards */
+.search-result-item {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
