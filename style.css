@@ -1,7 +1,8 @@
-/* Improved Islamic Style — clean, elegant, and fully visible */
+/* 🌙 Islamic Google — Professional Dual Theme Design */
 
+/* THEME VARIABLES */
 :root {
-  --bg-gradient: linear-gradient(135deg, #f9f5e7, #fffdf6, #f4ecd8); /* Light beige & cream */
+  --bg-gradient: linear-gradient(135deg, #f9f5e7, #fffdf6, #f4ecd8);
   --pattern: url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png');
   --bg-color: #faf7ef;
   --text-primary: #1c1c1c;
@@ -10,15 +11,34 @@
   --button-text: #ffffff;
   --input-bg: #ffffff;
   --input-text: #212121;
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --link-color: #00897b;
-  --url-color: #00695c;
-  --snippet-color: #4e342e;
-  --border-color: rgba(0,0,0,0.08);
-  --shadow-color: rgba(0,0,0,0.1);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --link-color: #00796b;
+  --url-color: #004d40;
+  --snippet-color: #5d4037;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.12);
 }
 
-/* General Body Styles */
+/* 🌙 DARK THEME */
+body[data-theme="dark"] {
+  --bg-gradient: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+  --pattern: none;
+  --bg-color: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --gold-color: #ffce3a;
+  --button-text: #111827;
+  --input-bg: #1e293b;
+  --input-text: #f1f5f9;
+  --card-bg: rgba(30, 41, 59, 0.85);
+  --link-color: #38bdf8;
+  --url-color: #93c5fd;
+  --snippet-color: #cbd5e1;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* General Body */
 body {
   margin: 0;
   font-family: 'Amiri', serif;
@@ -34,55 +54,160 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Soft golden glow for spiritual elegance */
+/* Soft Glow */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 10%, rgba(255, 215, 0, 0.08), transparent 70%);
+  background: radial-gradient(circle at 50% 10%, rgba(255, 215, 0, 0.07), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Header Logo */
+/* Content */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header + Theme Toggle */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
 .logo {
   font-size: 2.4rem;
   font-weight: 700;
   color: var(--gold-color);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  text-shadow: 2px 2px 5px var(--shadow-color);
+  letter-spacing: 0.4px;
 }
 
-/* Search bar fix */
+/* Theme Toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--gold-color);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.theme-icon {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+/* Show/Hide Icons */
+body[data-theme="light"] #theme-icon-moon { display: inline; }
+body[data-theme="light"] #theme-icon-sun { display: none; }
+body[data-theme="dark"] #theme-icon-moon { display: none; }
+body[data-theme="dark"] #theme-icon-sun { display: inline; }
+
+/* Search Section */
+main { text-align: center; margin-top: 0.5rem; }
+
+.search-section h1 {
+  font-size: 2.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+/* Search Bar */
 .search-bar-container form {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .search-input {
-  background-color: #fff;
-  color: #111;
+  width: 100%;
+  padding: 1rem 1.3rem;
+  border: none;
+  background: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1.05rem;
+  border-radius: 50px 0 0 50px;
 }
 
 .search-button {
-  background-color: var(--gold-color);
-  color: #fff;
+  background: var(--gold-color);
+  color: var(--button-text);
+  border: none;
+  padding: 0 1.8rem;
+  font-weight: 700;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.search-button:hover {
-  filter: brightness(1.05);
-}
+.search-button:hover { filter: brightness(1.05); transform: translateY(-1px); }
 
-/* Result Cards */
+/* Results + Cards */
 .search-result-item {
-  background-color: var(--card-bg);
-  color: var(--text-primary);
-  border: 1px solid rgba(0,0,0,0.05);
+  background: var(--card-bg);
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
+
+/* AI Ask Section */
+.ai-input-container {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: 0 3px 12px var(--shadow-color);
+}
+
+#ai-question-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1rem;
+}
+
+.ai-send-btn {
+  background: var(--link-color);
+  color: var(--button-text);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  transition: filter 0.2s ease;
+}
+
+.ai-send-btn:hover { filter: brightness(1.1); }
 
 /* Footer */
 footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
   color: var(--text-secondary);
-  border-top: 1px solid rgba(0,0,0,0.1);
 }
