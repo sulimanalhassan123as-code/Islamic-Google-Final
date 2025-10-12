@@ -1,18 +1,19 @@
 {
-  "name": "Islamic Google final",
-  "short_name": "IslamicGooglefinal",
-  "start_url": "index.html",
+  "name": "Islamic Google",
+  "short_name": "IslamicGoogle",
+  "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#20B2AA",
-  "theme_color": "#20B2AA",
+  "background_color": "#ffffff",
+  "theme_color": "#0a3d62",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
